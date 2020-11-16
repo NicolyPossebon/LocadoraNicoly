@@ -28,7 +28,6 @@ public class JFCadastrarFilme extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtTitulo;
 	private JTextField textSinopse;
-	private JTextField txtValor;
 	private JTextField txtCategoria;
 
 	/**
@@ -60,11 +59,11 @@ public class JFCadastrarFilme extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Adicione um novo filme a locadora!");
-		lblNewLabel.setBounds(112, 13, 197, 28);
+		lblNewLabel.setBounds(124, 11, 197, 28);
 		contentPane.add(lblNewLabel);
 		
 		txtTitulo = new JTextField();
-		txtTitulo.setBounds(33, 70, 154, 28);
+		txtTitulo.setBounds(33, 70, 232, 28);
 		contentPane.add(txtTitulo);
 		txtTitulo.setColumns(10);
 		
@@ -73,19 +72,19 @@ public class JFCadastrarFilme extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Dura\u00E7\u00E3o");
-		lblNewLabel_2.setBounds(198, 52, 46, 14);
+		lblNewLabel_2.setBounds(275, 52, 46, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Imagem");
-		lblNewLabel_3.setBounds(305, 52, 46, 14);
+		lblNewLabel_3.setBounds(33, 112, 46, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JRadioButton rdbtn3d = new JRadioButton("3D");
-		rdbtn3d.setBounds(305, 73, 46, 23);
+		rdbtn3d.setBounds(33, 130, 46, 23);
 		contentPane.add(rdbtn3d);
 		
 		JRadioButton rdbtn2d = new JRadioButton("2D");
-		rdbtn2d.setBounds(353, 73, 46, 23);
+		rdbtn2d.setBounds(81, 130, 46, 23);
 		contentPane.add(rdbtn2d);
 		
 		ButtonGroup imagem = new ButtonGroup();
@@ -97,7 +96,7 @@ public class JFCadastrarFilme extends JFrame {
 		contentPane.add(list);
 		
 		JLabel lblNewLabel_4 = new JLabel("Dublado");
-		lblNewLabel_4.setBounds(330, 109, 46, 14);
+		lblNewLabel_4.setBounds(340, 112, 46, 14);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Sinopse");
@@ -110,30 +109,21 @@ public class JFCadastrarFilme extends JFrame {
 		contentPane.add(textSinopse);
 		textSinopse.setColumns(10);
 		
-		JLabel lblNewLabel_6 = new JLabel("Valor");
-		lblNewLabel_6.setBounds(33, 109, 46, 14);
-		contentPane.add(lblNewLabel_6);
-		
-		txtValor = new JTextField();
-		txtValor.setBounds(33, 124, 120, 28);
-		contentPane.add(txtValor);
-		txtValor.setColumns(10);
-		
 		JLabel lblNewLabel_7 = new JLabel("Categoria");
-		lblNewLabel_7.setBounds(163, 109, 86, 14);
+		lblNewLabel_7.setBounds(127, 112, 86, 14);
 		contentPane.add(lblNewLabel_7);
 		
 		txtCategoria = new JTextField();
-		txtCategoria.setBounds(163, 124, 161, 28);
+		txtCategoria.setBounds(133, 130, 201, 28);
 		contentPane.add(txtCategoria);
 		txtCategoria.setColumns(10);
 		
 		JSpinner spinnerDuracao = new JSpinner();
-		spinnerDuracao.setBounds(197, 70, 102, 28);
+		spinnerDuracao.setBounds(275, 70, 128, 28);
 		contentPane.add(spinnerDuracao);
 		
 		JRadioButton rdbtnDublado = new JRadioButton("Sim");
-		rdbtnDublado.setBounds(330, 127, 60, 23);
+		rdbtnDublado.setBounds(340, 130, 60, 23);
 		contentPane.add(rdbtnDublado);
 		
 		JButton btnCadastrar = new JButton("Cadastrar Filme");

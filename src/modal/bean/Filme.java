@@ -8,7 +8,7 @@ public class Filme {
 	private boolean dublado;
 	private String  sinopse;
 	private String  categoria;
-	private double  valor;
+
 	
 	public int getId() {
 		return id;
@@ -52,13 +52,6 @@ public class Filme {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	public double getValor() {
-		return valor;
-	}
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
-	
 	
 
 }

@@ -18,8 +18,8 @@ public class ClienteDAO {
 			stmt.setString(1, c.getNome());
 			stmt.setString(2, c.getCpf());
 			stmt.setString(3, c.getEmail());
-			stmt.setString(3, c.getTelefone());
-			stmt.setString(3, c.getEndereco());
+			stmt.setString(4, c.getTelefone());
+			stmt.setString(5, c.getEndereco());
 			
 			stmt.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");

@@ -121,7 +121,11 @@ public class JFCadastrarCliente extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblEndereco = new JLabel("Endere\u00E7o");
-		lblEndereco.setBounds(56, 168, 46, 14);
+		lblEndereco.setBounds(56, 168, 75, 14);
 		contentPane.add(lblEndereco);
+		
+		JLabel lblNewLabel_3 = new JLabel("ADICIONE UM NOVO CLIENTE!");
+		lblNewLabel_3.setBounds(146, 22, 169, 14);
+		contentPane.add(lblNewLabel_3);
 	}
 }
