@@ -22,4 +22,4 @@ create table cliente (
     telefone varchar (20) not null 
 );
 select * from cliente;
-drop table cliente
+

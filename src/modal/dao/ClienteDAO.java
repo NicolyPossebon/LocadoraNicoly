@@ -2,10 +2,15 @@ package modal.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 import connection.ConnectionFactory;
 import modal.bean.Cliente;
+import modal.bean.Filme;
 
 public class ClienteDAO {
 	public void create(Cliente c) {
@@ -30,5 +35,33 @@ public class ClienteDAO {
 		}
 	}
 	
+	public List<Cliente> read(){
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		List<Cliente> cliente = new ArrayList<>();
+		
+		try {
+			stmt = con.prepareStatement("SELECT * FROM cliente;");
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				Cliente c = new Cliente();
+				c.setId(rs.getInt("id"));
+				c.setNome(rs.getString("nome"));
+				c.setEmail(rs.getString("email"));
+				c.setCpf(rs.getString("cpf"));
+				c.setEndereco(rs.getString("endereco"));
+				c.setTelefone(rs.getString("telefone"));
+				
+				cliente.add(c);
+			}
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao buscar cliente");
+			e.printStackTrace();
+		} finally {
+			ConnectionFactory.closeConnection(con, stmt, rs);
+		}
+		return cliente;
+	}
 
 }
