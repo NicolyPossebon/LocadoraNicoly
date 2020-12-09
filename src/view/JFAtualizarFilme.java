@@ -145,8 +145,8 @@ public class JFAtualizarFilme extends JFrame {
 		lblId.setText(String.valueOf(f.getId()));
 		txtTitulo.setText(f.getTitulo());
 		txtCategoria.setText(f.getCategoria());
-		//txtSinopse.setText(f.getSinopse());
-		//spTempo.setValue(f.getTempo());
+		textSinopse.setText(f.getSinopse());
+		spinnerDuracao.setValue(f.getTempo());
 		if(f.isImagem3d() == true) {
 			rdbtn3d.setSelected(true);
 		}else if (f.isImagem3d() == false) {
