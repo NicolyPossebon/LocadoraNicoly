@@ -7,15 +7,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import modal.bean.Cliente;
-import modal.bean.Filme;
 import modal.dao.ClienteDAO;
-import modal.dao.FilmeDAO;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JFListarCliente extends JFrame {
 
@@ -75,6 +76,18 @@ public class JFListarCliente extends JFrame {
 		contentPane.add(btnCadastrarCliente);
 		
 		JButton btnAlterarCliente = new JButton("Alterar Cliente");
+		btnAlterarCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(jtCliente.getSelectedRow()!= -1) {
+					JFAtualizarCliente ac = new JFAtualizarCliente(
+							(int)jtCliente.getValueAt(jtCliente.getSelectedRow(), 0));
+					ac.setVisible(true);
+				}else {
+					JOptionPane.showMessageDialog(null, "Selecione um cliente!");
+				}
+				readJTable();			
+			}
+		});
 		btnAlterarCliente.setBounds(153, 227, 116, 23);
 		contentPane.add(btnAlterarCliente);
 		
