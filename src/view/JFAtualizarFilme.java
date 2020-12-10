@@ -84,15 +84,15 @@ public class JFAtualizarFilme extends JFrame {
 		txtTitulo.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("T\u00EDtulo");
-		lblNewLabel_1.setBounds(33, 52, 46, 14);
+		lblNewLabel_1.setBounds(33, 52, 63, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Dura\u00E7\u00E3o");
-		lblNewLabel_2.setBounds(275, 52, 46, 14);
+		lblNewLabel_2.setBounds(275, 52, 71, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Imagem");
-		lblNewLabel_3.setBounds(33, 112, 46, 14);
+		lblNewLabel_3.setBounds(33, 112, 63, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JRadioButton rdbtn3d = new JRadioButton("3D");
@@ -112,11 +112,11 @@ public class JFAtualizarFilme extends JFrame {
 		contentPane.add(list);
 		
 		JLabel lblNewLabel_4 = new JLabel("Dublado");
-		lblNewLabel_4.setBounds(340, 112, 46, 14);
+		lblNewLabel_4.setBounds(340, 112, 63, 14);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Sinopse");
-		lblNewLabel_5.setBounds(33, 163, 46, 14);
+		lblNewLabel_5.setBounds(33, 163, 63, 14);
 		contentPane.add(lblNewLabel_5);
 		
 		textSinopse = new JTextField();
@@ -126,7 +126,7 @@ public class JFAtualizarFilme extends JFrame {
 		textSinopse.setColumns(10);
 		
 		JLabel lblNewLabel_7 = new JLabel("Categoria");
-		lblNewLabel_7.setBounds(127, 112, 86, 14);
+		lblNewLabel_7.setBounds(127, 112, 103, 14);
 		contentPane.add(lblNewLabel_7);
 		
 		txtCategoria = new JTextField();

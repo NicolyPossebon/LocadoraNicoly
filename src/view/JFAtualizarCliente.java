@@ -57,19 +57,19 @@ public class JFAtualizarCliente extends JFrame {
 		Cliente c = cdao.read(id);
 		
 		JLabel lblCpf = new JLabel("CPF");
-		lblCpf.setBounds(241, 47, 46, 14);
+		lblCpf.setBounds(241, 47, 62, 14);
 		contentPane.add(lblCpf);
 		
 		JLabel lblNewLabel_1 = new JLabel("Email");
-		lblNewLabel_1.setBounds(171, 108, 46, 14);
+		lblNewLabel_1.setBounds(171, 108, 69, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Telefone");
-		lblNewLabel_2.setBounds(56, 108, 46, 14);
+		lblNewLabel_2.setBounds(56, 108, 62, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblEndereco = new JLabel("Endere\u00E7o");
-		lblEndereco.setBounds(56, 168, 75, 14);
+		lblEndereco.setBounds(56, 168, 100, 14);
 		contentPane.add(lblEndereco);
 		
 		JLabel lblNewLabel_3 = new JLabel("EDITE UM CLIENTE");
@@ -111,7 +111,7 @@ public class JFAtualizarCliente extends JFrame {
 		contentPane.add(lblId);
 		
 		JLabel lblNewLabel = new JLabel("Nome");
-		lblNewLabel.setBounds(56, 47, 46, 14);
+		lblNewLabel.setBounds(56, 47, 62, 14);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnLimpar = new JButton("Limpar");
