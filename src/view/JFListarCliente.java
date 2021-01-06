@@ -14,7 +14,10 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import modal.bean.Cliente;
+import modal.bean.Filme;
 import modal.dao.ClienteDAO;
+import modal.dao.FilmeDAO;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -92,6 +95,22 @@ public class JFListarCliente extends JFrame {
 		contentPane.add(btnAlterarCliente);
 		
 		JButton btnExcluirCliente = new JButton("Excluir Cliente");
+		btnExcluirCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					if(jtCliente.getSelectedRow() != -1) {
+						int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o cliente selecionado?","Exclusão",JOptionPane.YES_NO_OPTION);
+						if (opcao == 0) {
+							ClienteDAO dao = new ClienteDAO();
+							Cliente c = new Cliente();
+							c.setId((int) jtCliente.getValueAt(jtCliente.getSelectedRow(), 0));
+							dao.delete(c);
+						}
+					} else {
+						JOptionPane.showMessageDialog(null, "Selecione um cliente!");
+					}
+				readJTable();
+			}
+		});
 		btnExcluirCliente.setBounds(271, 227, 116, 23);
 		contentPane.add(btnExcluirCliente);
 		
