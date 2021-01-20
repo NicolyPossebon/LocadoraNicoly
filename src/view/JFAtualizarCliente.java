@@ -46,7 +46,7 @@ public class JFAtualizarCliente extends JFrame {
 	 * Create the frame.
 	 */
 	public JFAtualizarCliente(int id) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -115,6 +115,15 @@ public class JFAtualizarCliente extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textNome.setText(null);
+				textCpf.setText(null);
+				textEndereco.setText(null);
+				textEmail.setText(null);
+				textTelefone.setText(null);
+			}
+		});
 		btnLimpar.setBounds(81, 227, 89, 23);
 		contentPane.add(btnLimpar);
 		
@@ -145,6 +154,11 @@ public class JFAtualizarCliente extends JFrame {
 		contentPane.add(btnAlterar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnCancelar.setBounds(279, 227, 89, 23);
 		contentPane.add(btnCancelar);
 	}

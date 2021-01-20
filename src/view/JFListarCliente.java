@@ -20,6 +20,8 @@ import modal.dao.FilmeDAO;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowFocusListener;
+import java.awt.event.WindowEvent;
 
 public class JFListarCliente extends JFrame {
 
@@ -46,8 +48,15 @@ public class JFListarCliente extends JFrame {
 	 * Create the frame.
 	 */
 	public JFListarCliente() {
+		addWindowFocusListener(new WindowFocusListener() {
+			public void windowGainedFocus(WindowEvent e) {
+				readJTable();
+			}
+			public void windowLostFocus(WindowEvent arg0) {
+			}
+		});
 		setTitle("Listagem dos Clientes");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -74,11 +83,17 @@ public class JFListarCliente extends JFrame {
 		));
 		scrollPane.setViewportView(jtCliente);
 		
-		JButton btnCadastrarCliente = new JButton("Cadastrar Cliente");
-		btnCadastrarCliente.setBounds(25, 227, 126, 23);
+		JButton btnCadastrarCliente = new JButton("Cadastrar ");
+		btnCadastrarCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFCadastrarCliente cc = new JFCadastrarCliente();
+				cc.setVisible(true);
+			}
+		});
+		btnCadastrarCliente.setBounds(25, 227, 94, 23);
 		contentPane.add(btnCadastrarCliente);
 		
-		JButton btnAlterarCliente = new JButton("Alterar Cliente");
+		JButton btnAlterarCliente = new JButton("Alterar ");
 		btnAlterarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(jtCliente.getSelectedRow()!= -1) {
@@ -91,10 +106,10 @@ public class JFListarCliente extends JFrame {
 				readJTable();			
 			}
 		});
-		btnAlterarCliente.setBounds(153, 227, 116, 23);
+		btnAlterarCliente.setBounds(114, 227, 94, 23);
 		contentPane.add(btnAlterarCliente);
 		
-		JButton btnExcluirCliente = new JButton("Excluir Cliente");
+		JButton btnExcluirCliente = new JButton("Excluir ");
 		btnExcluirCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					if(jtCliente.getSelectedRow() != -1) {
@@ -111,8 +126,17 @@ public class JFListarCliente extends JFrame {
 				readJTable();
 			}
 		});
-		btnExcluirCliente.setBounds(271, 227, 116, 23);
+		btnExcluirCliente.setBounds(208, 227, 94, 23);
 		contentPane.add(btnExcluirCliente);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnCancelar.setBounds(295, 227, 94, 23);
+		contentPane.add(btnCancelar);
 		
 		readJTable();
 	}

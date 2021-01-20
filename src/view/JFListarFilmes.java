@@ -18,6 +18,8 @@ import modal.dao.FilmeDAO;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowFocusListener;
+import java.awt.event.WindowEvent;
 
 public class JFListarFilmes extends JFrame {
 
@@ -45,8 +47,15 @@ public class JFListarFilmes extends JFrame {
 	 * Create the frame.
 	 */
 	public JFListarFilmes() {
+		addWindowFocusListener(new WindowFocusListener() {
+			public void windowGainedFocus(WindowEvent e) {
+				readJTable();
+			}
+			public void windowLostFocus(WindowEvent arg0) {
+			}
+		});
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Listagem dos Filmes");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -73,7 +82,7 @@ public class JFListarFilmes extends JFrame {
 		));
 		scrollPane.setViewportView(jtFilme);
 		
-		JButton btnExcluirFilme = new JButton(" Excluir Filme");
+		JButton btnExcluirFilme = new JButton(" Excluir ");
 		btnExcluirFilme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					if(jtFilme.getSelectedRow() != -1) {
@@ -93,11 +102,17 @@ public class JFListarFilmes extends JFrame {
 			}
 		});
 		
-		btnExcluirFilme.setBounds(282, 229, 120, 23);
+		btnExcluirFilme.setBounds(217, 229, 89, 23);
 		contentPane.add(btnExcluirFilme);
 		
-		JButton btnCadastrarFilme = new JButton("Cadastrar Filme");
-		btnCadastrarFilme.setBounds(30, 229, 120, 23);
+		JButton btnCadastrarFilme = new JButton("Cadastrar ");
+		btnCadastrarFilme.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFCadastrarFilme cf = new JFCadastrarFilme();
+				cf.setVisible(true);
+			}
+		});
+		btnCadastrarFilme.setBounds(10, 229, 98, 23);
 		contentPane.add(btnCadastrarFilme);
 		
 		JButton btnEditar = new JButton("Alterar");
@@ -114,8 +129,17 @@ public class JFListarFilmes extends JFrame {
 			
 			}
 		});
-		btnEditar.setBounds(174, 229, 89, 23);
+		btnEditar.setBounds(118, 229, 89, 23);
 		contentPane.add(btnEditar);
+		
+		JButton btnCancelarFilme = new JButton("Cancelar");
+		btnCancelarFilme.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnCancelarFilme.setBounds(316, 229, 94, 23);
+		contentPane.add(btnCancelarFilme);
 		
 		readJTable();
 	}

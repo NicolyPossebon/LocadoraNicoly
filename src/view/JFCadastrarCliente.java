@@ -47,7 +47,7 @@ public class JFCadastrarCliente extends JFrame {
 	 * Create the frame.
 	 */
 	public JFCadastrarCliente() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -84,6 +84,16 @@ public class JFCadastrarCliente extends JFrame {
 		txtEndereco.setColumns(10);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtNome.setText(null);
+				txtCpf.setText(null);
+				txtEndereco.setText(null);
+				txtEmail.setText(null);
+				txtTelefone.setText(null);
+				
+			}
+		});
 		btnLimpar.setBounds(81, 227, 89, 23);
 		contentPane.add(btnLimpar);
 		
@@ -99,12 +109,18 @@ public class JFCadastrarCliente extends JFrame {
 				c.setEndereco(txtEndereco.getText());
 				
 				dao.create(c);
+				dispose();
 			}
 		});
-		btnCadastrar.setBounds(180, 227, 89, 23);
+		btnCadastrar.setBounds(172, 227, 104, 23);
 		contentPane.add(btnCadastrar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnCancelar.setBounds(279, 227, 89, 23);
 		contentPane.add(btnCancelar);
 		
@@ -117,7 +133,7 @@ public class JFCadastrarCliente extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Telefone");
-		lblNewLabel_2.setBounds(56, 108, 46, 14);
+		lblNewLabel_2.setBounds(56, 108, 75, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblEndereco = new JLabel("Endere\u00E7o");

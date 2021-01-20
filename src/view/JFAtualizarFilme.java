@@ -54,7 +54,7 @@ public class JFAtualizarFilme extends JFrame {
 	 * Create the frame.
 	 */
 	public JFAtualizarFilme(int id) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
@@ -184,10 +184,24 @@ public class JFAtualizarFilme extends JFrame {
 		
 			
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtTitulo.setText(null);
+				txtCategoria.setText(null);
+				textSinopse.setText(null);
+				spinnerDuracao.setValue(0);
+				imagem.clearSelection();
+			}
+		});
 		btnLimpar.setBounds(287, 227, 89, 23);
 		contentPane.add(btnLimpar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnCancelar.setBounds(62, 227, 89, 23);
 		contentPane.add(btnCancelar);
 		
